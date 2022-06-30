@@ -31,8 +31,6 @@ const Provider = ({ children }) => {
   }, []);
 
   const deleteBookHandler = async (book) => {
-    console.log('delete');
-    console.log('id', book.id);
     try {
       const response = await axios.delete(
         `https://postman-library-api.glitch.me/books/${book.id}`
@@ -47,7 +45,21 @@ const Provider = ({ children }) => {
     }
   };
 
-  const editBookHandler = (book) => {};
+  const editBookHandler = async ({ title, author, genre, year, id }) => {
+    try {
+      const response = await axios.patch(
+        `https://postman-library-api.glitch.me/books/${id}`,
+        {
+          title,
+          author,
+          genre,
+          year,
+        }
+      );
+    } catch (e) {
+      console.log('editError', e);
+    }
+  };
 
   return initialLoading ? (
     <View style={[styles.container, styles.horizontal]}>

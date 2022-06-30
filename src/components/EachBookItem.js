@@ -6,6 +6,8 @@ import { Context } from '../context/Provider';
 const EachBookItem = ({ book, navigation }) => {
   const { deleteBookHandler } = useContext(Context);
 
+  console.log('id', book.id);
+
   return (
     <TouchableOpacity
       onPress={() => {
@@ -14,6 +16,7 @@ const EachBookItem = ({ book, navigation }) => {
     >
       <View style={styles.book}>
         <Text style={styles.title}>{book.title}</Text>
+
         <TouchableOpacity
           onPress={() => {
             deleteBookHandler(book);
@@ -21,6 +24,7 @@ const EachBookItem = ({ book, navigation }) => {
         >
           <MaterialCommunityIcons name="delete" style={styles.icon} />
         </TouchableOpacity>
+
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Edit', book);
@@ -54,5 +58,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     marginHorizontal: 5,
+  },
+  loadingIcon: {
+    color: 'black',
   },
 });

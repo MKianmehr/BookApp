@@ -1,5 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import MainPage from './src/screens/MainPage';
 import EachBook from './src/screens/EachBook';
 import EditBook from './src/screens/EditBook';
